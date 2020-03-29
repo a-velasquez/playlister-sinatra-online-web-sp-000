@@ -24,6 +24,7 @@ class SongsController < ApplicationController
       erb :"songs/show"
     else
       @song.artist = Artist(:name => params["Artist Name"])
+      erb :"songs/show"
     end
 
 
