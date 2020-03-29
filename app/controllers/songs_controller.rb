@@ -19,7 +19,7 @@ class SongsController < ApplicationController
   end
 
  # post '/songs' do
- # 
+ #
  #   artist_entry = params[:song][:artist]
  #   if Artist.find_by(:name => artist_entry)
  #     artist = Artist.find_by(:name => artist_entry)
@@ -28,14 +28,14 @@ class SongsController < ApplicationController
  #     artist = Artist.create(:name => artist_entry)
  #   end
  #   @song.artist = artist
- # 
+ #
  #   genre_selections = params[:song][:genres]
  #   @song.genre_id = genre_selections
- # 
+ #
  #   @song.save
- # 
+ #
  #   redirect to '/songs/#{@song.slug}'
- # 
+ #
  # end
 
  get '/songs/:slug' do
