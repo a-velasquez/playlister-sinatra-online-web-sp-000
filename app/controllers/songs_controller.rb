@@ -22,6 +22,8 @@ class SongsController < ApplicationController
       @song.genre_ids = params[:genres]
       @song.save
       erb :"songs/show"
+    else
+      @song.artist = Artist(:name => params["Artist Name"])
     end
 
 
