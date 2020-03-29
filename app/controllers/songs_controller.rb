@@ -23,6 +23,7 @@ class SongsController < ApplicationController
       @song.save
       erb :"songs/show"
     else
+      Artist.create(:name => params["Name"])
       @song.artist = Artist(:name => params["Artist Name"])
     end
 
