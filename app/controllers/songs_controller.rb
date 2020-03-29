@@ -10,33 +10,26 @@ class SongsController < ApplicationController
     erb :"songs/new"
   end
 
-  post '/songs' do
-    @song = Song.create(params[:song])
-    @song.artist = Artist.find_or_create_by(:name => params[:song][:artist_id])
-    @song.save
-    flash[:message] = "Successfully created song."
-    redirect "/songs/#{@song.slug}"
-  end
 
- # post '/songs' do
- #
- #   artist_entry = params[:song][:artist]
- #   if Artist.find_by(:name => artist_entry)
- #     artist = Artist.find_by(:name => artist_entry)
- #   else
- #     @song = Song.create(:name => params[:song][:name])
- #     artist = Artist.create(:name => artist_entry)
- #   end
- #   @song.artist = artist
- #
- #   genre_selections = params[:song][:genres]
- #   @song.genre_id = genre_selections
- #
- #   @song.save
- #
- #   redirect to '/songs/#{@song.slug}'
- #
- # end
+ post '/songs' do
+
+   artist_entry = params[:song][:artist]
+   if Artist.find_by(:name => artist_entry)
+     artist = Artist.find_by(:name => artist_entry)
+   else
+     @song = Song.create(:name => params[:song][:name])
+     artist = Artist.create(:name => artist_entry)
+   end
+   @song.artist = artist
+
+   genre_selections = params[:song][:genres]
+   @song.genre_id = genre_selections
+
+   @song.save
+
+   redirect to '/songs/#{@song.slug}'
+
+ end
 
  get '/songs/:slug' do
    @song = Song.find_by_slug(params[:slug])
