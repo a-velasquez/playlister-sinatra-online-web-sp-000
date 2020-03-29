@@ -22,7 +22,7 @@ class SongsController < ApplicationController
     @song.genre_ids = params[:genres]
     @song.save
 
-    erb :"/songs/#{@song.slug}"
+    erb :"songs/#{@song.slug}"
   end
 
 
