@@ -16,25 +16,25 @@ class SongsController < ApplicationController
   end
 
 
- # post '/songs' do
- #
- #   artist_entry = params[:song][:artist]
- #   if Artist.find_by(:name => artist_entry)
- #     artist = Artist.find_by(:name => artist_entry)
- #   else
- #     @song = Song.create(:name => params[:song][:name])
- #     artist = Artist.create(:name => artist_entry)
- #   end
- #   @song.artist = artist
- #
- #   genre_selections = params[:song][:genres]
- #   @song.genre_id = genre_selections
- #
- #   @song.save
- #
- #   redirect to '/songs/#{@song.slug}'
- #
- # end
+ post '/songs' do
+
+   artist_entry = params[:song][:artist]
+   if Artist.find_by(:name => artist_entry)
+     artist = Artist.find_by(:name => artist_entry)
+   else
+     @song = Song.create(:name => params[:song][:name])
+     artist = Artist.create(:name => artist_entry)
+   end
+   @song.artist = artist
+
+   genre_selections = params[:song][:genres]
+   @song.genre_id = genre_selections
+
+   @song.save
+
+   redirect to '/songs/#{@song.slug}'
+
+ end
 
 
  patch '/songs/:slug' do #edit action
